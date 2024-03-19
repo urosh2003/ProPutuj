@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ProPutuj</title>
+        <link rel="icon" type="image/x-icon" href="Logo.png">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="materialize\css\materialize.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul class="linkovi" id="linkovi">
+                    <li id="logo">
+                        <a href="main.html" style="float:left">
+                            <img src="Logo.png"><b class="velika">ProPutuj</b>
+                        </a>
+                    </li>
+                    <li><a class='dropdown-trigger' href='#' data-target='admindropdown'>Admin</a></li>
+                    <li><a href="#modal1" class="modal-trigger">Login</a></li>
+                    <li><a href="#modal2" class="modal-trigger">Registracija</a></li>
+                    <li><a href="javascript:void(0);" class="meni" onclick="myFunction()"><b id="meni">Meni</b></a></li>
+                </ul>
+            </nav>
+        </header>
+
+        
+            
+        <ul id='admindropdown' class='dropdown-content'>
+            <li><a href="izmena agencije.html">Izmena agencija</a></li>
+            <li><a href="izmena destinacije.html">Izmena destinacija</a></li>
+            <li><a href="izmena korisnika.html">Izmena korisnika</a></li>
+            <li><a href="greska.html">Stranica za gresku</a></li>
+        </ul>
+
+    <div class="modal" id="modal1">
+        <form class = "forma" id="login">
+            <div class = "modal-content">
+                <div>
+                    <h4>Login</h4>
+                 </div>
+                 <div>
+                    <b>Korisnicko ime ili email adresa:</b>
+                    <input type="text" placeholder="Korisnicko ime ili email adresa" id="user" required>
+                    <b>Password:</b>
+                    <input type="password" placeholder="Password" id="pass" required>
+                </div>
+            </div>
+            <div class = "modal-footer">
+                <button type="submit">Login</button>
+                <button type="button" onclick="zatvoriFormu()" class="modal-close">cancel</button>
+            </div>
+        </form>
+    </div>
+
+    
+
+    <div class="modal modal-fixed-footer" id="modal2">
+        <form class = "forma" id="regforma">
+            <div class = "modal-content">
+                <div>
+                    <h4>Registracija</h4>
+                </div>
+                <div>
+                    <b>Email:</b>
+                    <input type="text" placeholder="Email" id="regemail" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Unesite pravilnu email adresu (npr. pera.peric@mail.com)" required>
+                    <b>Korisnicko ime:</b>
+                    <input type="text" placeholder="Korisnicko ime" id="reguser" pattern = "^[a-zA-Z0-9]{3,12}$" title="Korisničko ime mora sadržati od 3 do 12 slova i/ili brojeva (specijalni karakteri ovde nisu dozvoljeni)" required>
+                    <b>Password:</b>
+                    <input type="password" placeholder="Password" id="regpass" pattern = "^[a-zA-Z0-9]{3,12}$" title="Šifra mora sadržati od 3 do 12 slova i/ili brojeva (specijalni karakteri ovde nisu dozvoljeni)" required>
+                    <b>Ponovo unesite password:</b>
+                    <input type="password" placeholder="Ponovo unesite password" id="regpassp" pattern = "^[a-zA-Z0-9]{3,12}$" title="Šifra mora sadržati od 3 do 12 slova i/ili brojeva (specijalni karakteri nisu dozvoljeni)" required>
+                    <b>Ime:</b>
+                    <input type="text" placeholder="Ime" id="regime" pattern="^[a-zA-Za-åa-ö-w-я /'\-,]+$" title="Unesite Vaše ime" required>
+                    <b>Prezime:</b>
+                    <input type="text" placeholder="Prezime" id="regprezime" pattern="^[a-zA-Za-åa-ö-w-я /'\-,]+$" title="Unesite Vaše prezime" required>
+                    <b>Adresa:</b>
+                    <input type="text" placeholder="Adresa" id="regadresa" pattern="^[a-zA-Za-åa-ö-w-я 0-9/'\-,]+$" title="Unesite Vašu adresu (ukoliko adresa nema broj dodajte bb na kraju)" required>
+                    <b>Datum rodjenja:</b>
+                    <input type="date" placeholder="Datum rodjenja" id="regdatum" max="2023-01-06" title="Unesite validan datum" required>
+                    <b>Broj telefona:</b>
+                    <input type="text" placeholder="Broj telefona" id="regbroj" pattern="^\+?[0-9\s/\-]+$" title="Unesite validan broj telefona" required>
+                </div>
+            </div>
+            <div class = "modal-footer">
+                <div>
+                    <button type="submit" id="regdugme">Registracija</button>
+                    <button type="reset">Reset</button>
+                    <button type="button" class="modal-close">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div id="uspeh" class="modal">
+        <div class="modal-content">
+            <h3>Akcija uspesno izvrsena.</h3>
+        </div>
+        <div class="modal-footer">
+            <button type="button" onclick="refresh()">OK</button>
+        </div>
+    </div>
+
+    <div class="center-align" style="position: relative;">
+        <img id = "pozadina" src="—Pngtree—saving new energy green travel_1114920.jpg">
+        <h2 class="hoverable naziv" id="bannertekst">Svet sa nama.</h2>
+    </div>
+    
+    <div class="container">
+        <div class="opis">
+            <h1 class="naziv" id = "naziv"></h1>
+            <p class="naziv" id = "prevoznik"></p>
+            <p class="naziv" id = "tip"></p>
+            <p class="naziv" id = "prevoz"></p>
+            <p class="naziv" id = "cena"></p>
+            <p class="naziv" id = "max"></p>
+        </div>
+    </div>
+
+<div class="container">
+    <p class="naziv" id="tekst"></p>
+</div>
+
+    <div class = "slike">
+        <div class="slideshow-container" id="slike">
+        </div>
+        <br>
+        
+        <div style="text-align:center" id="tacke">
+            
+        </div>
+    </div>
+
+    <br>
+    
+    <script type="text/javascript" src="destinacije.js"></script>
+    <script type="text/javascript" src="materialize\js\materialize.js"></script>
+    <script type="text/javascript" src="sajt.js"></script>
+    
+</body>
+</html>
